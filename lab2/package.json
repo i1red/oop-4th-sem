@@ -1,0 +1,28 @@
+{
+  "name": "algvisualization",
+  "version": "1.0.0",
+  "description": "Visualizer for sorting algorithms, for example quicksort, selection sort",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**/*.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i1red/oop-4th-sem.git"
+  },
+  "author": "Ivan Krasnoshchok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i1red/oop-4th-sem/issues"
+  },
+  "homepage": "https://github.com/i1red/oop-4th-sem#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
