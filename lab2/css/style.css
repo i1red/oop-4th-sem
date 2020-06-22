@@ -50,12 +50,13 @@
 .arrayItem {
     --item-size: 40px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     box-sizing: border-box;
     width: var(--item-size);
     height: var(--item-size);
-
-    text-align: center;
-    vertical-align: center;
 
     border: 2px solid #000000;
 }
