@@ -1,4 +1,4 @@
-const DIV_ARRAY_ITEM_CSS = 'arrayItem';
+import { StyleClass } from '../settings.js';
 
 
 export class HTMLDivArrayItem {
@@ -10,7 +10,7 @@ export class HTMLDivArrayItem {
         this.valueHolder.innerHTML = value.toString();
 
         this.div = document.createElement('div');
-        this.div.classList.add(DIV_ARRAY_ITEM_CSS);
+        this.div.classList.add(StyleClass.DivArrayItem);
         this.div.appendChild(this.valueHolder);
 
         parent.appendChild(this.div);
@@ -24,11 +24,11 @@ export class HTMLDivArrayItem {
         this.valueHolder.innerHTML = value.toString();
     }
 
-    addStyleClass(cls: string): void {
+    addStyleClass(cls: StyleClass): void {
         this.div.classList.add(cls);
     }
 
-    removeStyleClass(cls: string): void {
+    removeStyleClass(cls: StyleClass): void {
         this.div.classList.remove(cls);
     }
 }

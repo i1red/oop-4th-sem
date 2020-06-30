@@ -1,4 +1,5 @@
 import { HTMLDivArrayItem } from './htmlarrayitem.js';
+import { StyleClass } from '../settings.js';
 class BuiltInNumberArray {
     constructor(initArray) {
         this.container = Array.from(initArray);
@@ -14,11 +15,12 @@ class BuiltInNumberArray {
     }
 }
 export class HTMLNumberArray {
-    constructor(initArray, arrayParent) {
+    constructor(initArray, parent = null) {
+        this.parent = null;
         this.itemsParent = document.createElement('div');
-        this.itemsParent.classList.add('array');
+        this.itemsParent.classList.add(StyleClass.Array);
         this.items = initArray.map(value => new HTMLDivArrayItem(value, this.itemsParent));
-        arrayParent.appendChild(this.itemsParent);
+        this.setParent(parent);
     }
     get(index) {
         return this.items[index].value;
@@ -28,5 +30,20 @@ export class HTMLNumberArray {
     }
     get length() {
         return this.items.length;
+    }
+    setParent(parent) {
+        if (this.parent !== null) {
+            this.parent.removeChild(this.itemsParent);
+        }
+        this.parent = parent;
+        if (this.parent !== null) {
+            this.parent.appendChild(this.itemsParent);
+        }
+    }
+    addStyleClassToItem(index, cls) {
+        this.items[index].addStyleClass(cls);
+    }
+    removeStyleClassFromItem(index, cls) {
+        this.items[index].removeStyleClass(cls);
     }
 }

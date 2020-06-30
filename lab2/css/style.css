@@ -60,3 +60,32 @@
 
     border: 2px solid #000000;
 }
+
+.currentItem, .swappedItem, .minItem, .tmpItem, .partitionResultItem,
+.currentPartitionItem, pivotItem {
+    transition: 0.5s;
+}
+
+.currentItem {
+    background-color: #6c5af7;
+}
+
+.swappedItem {
+    background-color: #9c3412 !important;
+}
+
+.minItem, .partitionResultItem {
+    background-color: #da9b13;
+}
+
+.tmpItem {
+    background-color: #bceb86;
+}
+
+.currentPartitionItem {
+    border-color: #c01515;
+}
+
+.pivotItem {
+    background-color: #f75a7c;
+}
