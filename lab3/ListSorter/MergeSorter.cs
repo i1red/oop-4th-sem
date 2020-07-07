@@ -8,16 +8,16 @@ namespace ListSorter
         {
             return SortImplementation(list, comparer ?? Comparer<T>.Default);
         }
-        
+
         protected virtual List<T> SortImplementation(List<T> list, IComparer<T> comparer)
         {
             if (list.Count <= 1)
             {
                 return new List<T>(list);
             }
-            
+
             int countOfHalf = list.Count / 2;
-            return Merge(SortImplementation(list.GetRange(0, countOfHalf), comparer), 
+            return Merge(SortImplementation(list.GetRange(0, countOfHalf), comparer),
                 SortImplementation(list.GetRange(countOfHalf, list.Count - countOfHalf), comparer), comparer);
         }
 
@@ -53,7 +53,8 @@ namespace ListSorter
             {
                 resultList.Add(secondHalf[j++]);
             }
-            
+
             return resultList;
         }
+    }
 }
