@@ -57,5 +57,18 @@ namespace ListSorter
                 hasPrev = !hasPrev;
             }
         }
+
+        public static List<int> RandomList(int listSize)
+        {
+            var result = new List<int>(listSize);
+            var generator = new Random();
+            
+            for (int i = 0; i < listSize; ++i)
+            {
+                result.Add(generator.Next(-listSize, listSize));
+            }
+
+            return result;
+        }
     }
 }
