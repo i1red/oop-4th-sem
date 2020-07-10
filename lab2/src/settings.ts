@@ -1,4 +1,5 @@
 export enum StyleClass {
+    Power = 'pow',
     Array = 'array',
     DivArrayItem = 'arrayItem',
     CurrentItem = 'currentItem',

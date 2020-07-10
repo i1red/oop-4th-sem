@@ -26,7 +26,6 @@ async function swap(array: StylableNumberArray, i: number, j: number, delay: num
     if (i !== j) {
         array.addStyleClassToItem(i, StyleClass.SwappedItem);
         array.addStyleClassToItem(j, StyleClass.SwappedItem);
-
         await sleep(delay);
 
         let tmp: number = array.get(i);
@@ -78,7 +77,6 @@ async function quicksortImpl(array: StylableNumberArray, start: number, end: num
         await sleep(delay);
 
         await quicksortImpl(array, start, index - 1, delay);
-
         await quicksortImpl(array, index + 1, end, delay);
 
         array.removeStyleClassFromItem(index, StyleClass.PartitionResultItem);
@@ -95,22 +93,28 @@ export async function selectionSort(array: StylableNumberArray, delay: number = 
     for (let i: number = 0; i < array.length - 1; ++i) {
         array.addStyleClassToItem(i, StyleClass.CurrentItem);
         await sleep(delay);
+
         let minIndex: number = i;
+
         array.addStyleClassToItem(minIndex, StyleClass.MinItem);
         await sleep(delay);
 
         for (let j: number = i + 1; j < array.length; ++j) {
             array.addStyleClassToItem(j, StyleClass.TmpItem);
             await sleep(delay);
+
             if (array.get(minIndex) > array.get(j)) {
                 array.removeStyleClassFromItem(minIndex, StyleClass.MinItem);
                 minIndex = j;
                 array.addStyleClassToItem(minIndex, StyleClass.MinItem);
             }
+
             array.removeStyleClassFromItem(j, StyleClass.TmpItem);
             await sleep(delay);
         }
+
         await swap(array, minIndex, i, delay);
+
         array.removeStyleClassFromItem(minIndex, StyleClass.MinItem);
         array.removeStyleClassFromItem(i, StyleClass.CurrentItem);
         await sleep(delay);

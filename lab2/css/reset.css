@@ -29,7 +29,7 @@ time, mark, audio, video {
 
 /* Default font sizes for h tags*/
 h1 { 
-	font-size: 2em; 
+	font-size: 2em;
 }
 
 h2 { 
@@ -54,6 +54,7 @@ h6 {
 
 h1, h2, h3, h4, h5, h6 { 
 	font-weight: bolder; 
+	line-height: normal; 
 }
 
 /* HTML5 display-role reset for older browsers */

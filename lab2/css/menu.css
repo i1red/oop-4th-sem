@@ -1,0 +1,95 @@
+:root {
+    --rowHeight: 40px;
+    --defaultPadding: 10px;
+    --contentMinWidth: 480px;
+}
+
+body {
+    min-width: var(--contentMinWidth);
+}
+
+.title {
+    margin: 10px;
+    text-align: center;
+}
+
+.panel {
+    --shadowColor: #666666;
+    --shadowOffset: 0px;
+    --shadowBlur: 5px;
+
+    box-sizing: border-box;
+    padding: var(--defaultPadding);
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 
+        var(--shadowOffset) var(--shadowOffset) var(--shadowBlur) var(--shadowColor),
+        calc(-1 * var(--shadowOffset)) var(--shadowOffset) var(--shadowBlur) var(--shadowColor),
+        var(--shadowOffset) calc(-1 * var(--shadowOffset)) var(--shadowBlur) var(--shadowColor),
+        calc(-1 * var(--shadowOffset)) calc(-1 * var(--shadowOffset)) var(--shadowBlur) var(--shadowColor);
+}
+
+.sortAlgorithmSetup {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    margin: 0 auto;
+}
+
+.formSortMenu {
+    min-width: calc(var(--contentMinWidth) - var(--defaultPadding) * 2);
+    width: 60%;
+    flex-grow: 1;
+}
+
+.formRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    min-height: var(--rowHeight);
+    height: fit-content;
+}
+
+.formRow * {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.formActionElement {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 5px;
+
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.noBorder, .noBorder:hover, .noBorder:active, 
+.noBorder:focus, .noBorder:enabled {
+    border: none;
+}
+
+.mediumWidth {
+    width: 48%;
+}
+
+.maxWidth {
+    width: 100%;
+}
+
+.sortAlgorithmDescription {
+    line-height: var(--rowHeight);
+    width: 35%;
+    flex-grow: 1;
+}
+
+.pow {
+    font-size: smaller; 
+    vertical-align: super;
+}
+
+.sortAlgorithmVisualization {
+    padding: var(--defaultPadding);
+}

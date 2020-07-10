@@ -6,31 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort algorithm visualization</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/array.css">
 </head>
 
 <body>
-    <form id="formSortMenu" class="formMenu">
-        <div class="formRow">
-            <label for="selectSortAlgorithms">Select sort algorithm: </label>
-            <select id="selectSortAlgorithms" class="formActionElement noBorder mediumWidth">
-                <option value="quicksort">Quicksort</option>
-                <option value="selectionSort">Selection sort</option>
-            </select>
-        </div>
-        <div class="formRow">
-            <label for="spinItemsNumber">Generate random items: </label>
-        </div>
-        <div class="formRow">
-            <input type="number" id="spinItemsNumber" class="formActionElement mediumWidth" value="0" min="0" max="32">
-            <button type="button" id="btnGenRandItems" class="formActionElement noBorder mediumWidth">GENERATE</button>
-        </div>
-        <div class="formRow">
-            <button type="button" id="btnSort" class="formActionElement noBorder maxWidth">SORT</button>
-        </div>
-    </form>
+    <h1 class="title">Sort algorithms visualization</h1>
+    <section id="sortAlgorithmSetup" class="sortAlgorithmSetup">
+        <form id="formSortMenu" class="formSortMenu panel">
+            <div class="formRow">
+                <label for="selectSortAlgorithms">Select sort algorithm: </label>
+                <select id="selectSortAlgorithms" class="formActionElement noBorder mediumWidth">
+                    <option value="quicksort">Quicksort</option>
+                    <option value="selectionSort">Selection sort</option>
+                </select>
+            </div>
+            <div class="formRow">
+                <label for="spinItemsNumber">Generate random items: </label>
+            </div>
+            <div class="formRow">
+                <input type="number" id="spinItemsNumber" class="formActionElement mediumWidth" value="0" min="0"
+                    max="32">
+                <button type="button" id="btnGenRandItems"
+                    class="formActionElement noBorder mediumWidth">GENERATE</button>
+            </div>
+            <div class="formRow">
+                <button type="button" id="btnSort" class="formActionElement noBorder maxWidth">SORT</button>
+            </div>
+        </form>
 
-    <section id="content"></section>
+        <div id="sortAlgorithmDescription" class="sortAlgorithmDescription panel">
+            <p>Worst case complexity: O(<var>n</var><span class="pow">2</span> )</p>
+            <p>Average case complexity: O(<var>n</var>log<var>n</var>)</p>
+            <p>Best case complexity: O(<var>n</var>log<var>n</var>)</p>
+            <a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">Detail info</a>
+        </div>
+    </section>
+
+    <section id="sortAlgorithmVisualization" class="sortAlgorithmVisualization"></section>
 
     <script type="module" src="built/main.js"></script>
 </body>

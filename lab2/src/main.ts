@@ -1,5 +1,6 @@
 import { HTMLNumberArray } from './numberarray/numberarray.js'
 import { quicksort, selectionSort, VisualizibleSortAlgorithm } from './sortalgoritms/visualizablealgoritms.js'
+import { getInfoAsHTML } from './sortalgoritms/algorithmsinfo.js';
 import { randomNumberArray } from './utils.js'
 
 
@@ -7,7 +8,9 @@ const selectSortAlgorithms: HTMLSelectElement = <HTMLSelectElement>document.getE
 const btnSort: HTMLButtonElement = <HTMLButtonElement>document.getElementById('btnSort');
 const btnGenRandItems: HTMLButtonElement = <HTMLButtonElement>document.getElementById('btnGenRandItems');
 const spinItemsNumber: HTMLInputElement = <HTMLInputElement>document.getElementById('spinItemsNumber');
-const content: HTMLDivElement = <HTMLDivElement>document.getElementById('content');
+const sortAlgorithmVisualization: HTMLDivElement = <HTMLDivElement>document.getElementById('sortAlgorithmVisualization');
+
+let sortAlgorithmDescription: HTMLDivElement = <HTMLDivElement>document.getElementById('sortAlgorithmDescription');
 
 
 const algorithms = {
@@ -15,13 +18,26 @@ const algorithms = {
     selectionSort: selectionSort,
 };
 
-
 let array: HTMLNumberArray = null;
 let algorithm: VisualizibleSortAlgorithm = quicksort;
 
 
+function setDisabledStatus(status: boolean): void {
+    selectSortAlgorithms.disabled = status;
+    btnGenRandItems.disabled = status;
+    btnSort.disabled = status;
+}
+
+
+selectSortAlgorithms.addEventListener('change', () => {
+    sortAlgorithmDescription.innerHTML = getInfoAsHTML(selectSortAlgorithms.value);
+    algorithm = algorithms[selectSortAlgorithms.value];
+});
+
+
 btnSort.addEventListener('click', () => {
-    algorithms[selectSortAlgorithms.value](array);
+    setDisabledStatus(true);
+    algorithm(array).then(() => setDisabledStatus(false));
 });
 
 
@@ -35,7 +51,7 @@ btnGenRandItems.addEventListener('click', () => {
         if (array !== null) {
             array.setParent(null);
         }
-        array = new HTMLNumberArray(randomNumberArray(arraySize), content);
+        array = new HTMLNumberArray(randomNumberArray(arraySize), sortAlgorithmVisualization);
     }
 });
 
