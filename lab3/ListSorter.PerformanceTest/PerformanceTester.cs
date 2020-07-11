@@ -51,19 +51,19 @@ namespace ListSorter.PerformanceTest
         public static void PrintTestResult(Action codeToExecute, string testTitle, int loopsCount, int iterationsPerLoop)
         {
             Console.WriteLine(testTitle);
-            Console.WriteLine($"Loops count: {loopsCount}, iterations per loop {iterationsPerLoop}");
+            Console.WriteLine($"Loops count: {loopsCount}, iterations per loop: {iterationsPerLoop}");
             var (avg, std) = GetTestResult(codeToExecute, loopsCount, iterationsPerLoop);
-            Console.WriteLine($"Average time: {avg} ms, standard deviation: {std} ms");
+            Console.WriteLine($"Average time: {avg:0.##} ms, standard deviation: {std:0.##} ms");
             Console.WriteLine();
         }
 
         private static void WarmUp()
         {
-            int a = 0;
-            for (int i = 0; i < 200000; ++i)
+            const int warmUpLoopsCount = 200000;
+            
+            for (int i = 0; i < warmUpLoopsCount; ++i)
             {
-                a = i * i / 2;
-                a %= 10;
+                _ = i * i / 2 + i;
             }
         }
     }

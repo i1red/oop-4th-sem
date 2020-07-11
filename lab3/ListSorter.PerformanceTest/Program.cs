@@ -23,8 +23,13 @@ namespace ListSorter.PerformanceTest
             
             tester.PrintTestResult(() =>
             {
-                new ParallelMergeSorter<int>().Sort(testList);
-            }, "Test parallel merge sort");
+                new ParallelMergeSorter<int>(2).Sort(testList);
+            }, "Test parallel merge sort, 2 tasks");
+            
+            tester.PrintTestResult(() =>
+            {
+                new ParallelMergeSorter<int>(8).Sort(testList);
+            }, "Test parallel merge sort, 8 tasks");
         }
     }
 }
