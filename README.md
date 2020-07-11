@@ -34,9 +34,9 @@ How the algorithm works?
 
 Step 1: it accepts an algorithm for sequential sort(default is optimized merge sort) and number of tasks ***n*** it can use(default is number of cores/threads on your machine).\
 Step 2: it divides input list into ***n*** parts and sorts them in separate tasks, using sequential sort algorithm.\
-Step 3: it applies *parallel merge* (recursively) to sorted parts. It's similar to https://en.wikipedia.org/wiki/Merge_algorithm#Parallel_merge , but parametrized with number of threads.\
+Step 3: it applies *parallel merge* (recursively) to sorted parts. It's similar to https://en.wikipedia.org/wiki/Merge_algorithm#Parallel_merge , but parametrized with number of tasks.\
 For example, ***n=4***(4 lists, 4 tasks):\
-merges 2 pairs of lists using 2 for each pair, result is 2 sorted lists;\
+merges 2 pairs of lists using 2 tasks for each pair, result is 2 sorted lists;\
 merges 2 lists with 4 tasks(divides both lists in 4 parts, merges first part of first list with first part of second list...), result is sorted list;
 
 To run unit tests(**NUnit**) run next project:
@@ -47,7 +47,7 @@ I've written custom performance test, run:
 ```
 ListSorter.PerformanceTest
 ```
-For me the output was(I have 4 cores/8 threads on my laptop):
+For me the output was(1000000 integers, 4 cores/8 threads laptop):
 ```
 Test classic merge sort
 Loops count: 10, iterations per loop: 5
