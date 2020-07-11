@@ -1,6 +1,6 @@
 import { StylableNumberArray } from '../numberarray/numberarray';
-import { StyleClass } from '../settings.js';
-import { sleep } from '../utils.js';
+import { StyleClass } from '../settings';
+import { sleep } from '../utils';
 
 
 export interface VisualizibleSortAlgorithm {

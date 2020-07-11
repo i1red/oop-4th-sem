@@ -1,4 +1,4 @@
-import { HTMLFormat } from '../utils.js';
+import { HTMLFormat } from '../utils';
 
 
 const algorithmsInfo = {

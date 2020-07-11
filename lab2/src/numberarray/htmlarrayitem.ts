@@ -1,4 +1,4 @@
-import { StyleClass } from '../settings.js';
+import { StyleClass } from '../settings';
 
 
 export class HTMLDivArrayItem {

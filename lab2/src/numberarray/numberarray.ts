@@ -1,5 +1,5 @@
-import { HTMLDivArrayItem } from './htmlarrayitem.js'
-import { StyleClass } from '../settings.js';
+import { HTMLDivArrayItem } from './htmlarrayitem';
+import { StyleClass } from '../settings';
 
 
 export interface NumberArray {
@@ -22,7 +22,7 @@ interface StylableArray {
 export interface StylableNumberArray extends NumberArray, StylableArray, Parented { }
 
 
-class BuiltInNumberArray implements NumberArray {
+export class BuiltInNumberArray implements NumberArray {
     private container: Array<number>;
 
     constructor(initArray: Array<number>) {

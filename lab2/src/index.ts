@@ -1,7 +1,7 @@
-import { HTMLNumberArray } from './numberarray/numberarray.js'
-import { quicksort, selectionSort, VisualizibleSortAlgorithm } from './sortalgoritms/visualizablealgoritms.js'
-import { getInfoAsHTML } from './sortalgoritms/algorithmsinfo.js';
-import { randomNumberArray } from './utils.js'
+import { HTMLNumberArray } from './numberarray/numberarray'
+import { quicksort, selectionSort, VisualizibleSortAlgorithm } from './sortalgoritms/visualizablealgoritms'
+import { getInfoAsHTML } from './sortalgoritms/algorithmsinfo';
+import { randomNumberArray } from './utils'
 
 
 const selectSortAlgorithms: HTMLSelectElement = <HTMLSelectElement>document.getElementById('selectSortAlgorithms');

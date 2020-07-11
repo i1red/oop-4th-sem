@@ -1,4 +1,4 @@
-import { StyleClass } from './settings.js';
+import { StyleClass } from './settings';
 
 
 function randomInteger(min: number = 0, max: number = Number.MAX_SAFE_INTEGER): number {
@@ -6,10 +6,10 @@ function randomInteger(min: number = 0, max: number = Number.MAX_SAFE_INTEGER): 
 }
 
 
-export function randomNumberArray(arraySize: number): Array<number> {
+export function randomNumberArray(arraySize: number, minValue: number = 0, maxValue: number = 100): Array<number> {
     let result = Array<number>(arraySize);
     for (let i: number = 0; i < result.length; ++i) {
-        result[i] = randomInteger(0, 100);
+        result[i] = randomInteger(minValue, maxValue);
     }
     return result;
 }
