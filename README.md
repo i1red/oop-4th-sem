@@ -4,9 +4,9 @@
 This is a web application, which shows how quicksort and selection sort work.\
 It's written in typescript. Application has a simple GUI, so I'm not using any TS/JS frameworks.\
 If you want to work with that project you should have **node** and **npm** installed.\
-Other dependencies are listed in:
+To install project dependencies(listed in *package.json*) run:
 ```
-package.json
+npm install
 ```
 To build application(**webpack** will generate *bundle.js* file in *public* directory) use command:
 ```
