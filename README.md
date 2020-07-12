@@ -1,22 +1,26 @@
 ## Fundamentals of OOP
 
 ### lab2: sort algorithms visualization
-This is a web application, which shows how quicksort and selection sort work.\
-It's written in typescript. Application has a simple GUI, so I'm not using any TS/JS frameworks.\
-If you want to work with that project you should have **node** and **npm** installed.\
-To install project dependencies(listed in *package.json*) run:
+This is a web application, which shows how quicksort and selection sort work.
+
+It's written in typescript. Application has a simple GUI, so I'm not using any TS/JS frameworks.
+
+If you want to work with that project you should have **node** and **npm** installed.
+
+To install project dependencies(listed in *package.json*) run command:
 ```
 npm install
 ```
-To build application(**webpack** will generate *bundle.js* file in *public* directory) use command:
+To build application(**webpack** will generate *bundle.js* file in *public* directory) run command:
 ```
 npm run build
 ```
-To run unit tests for sort algorithms(non-GUI; written using **mocha/chai**) use command:
+To run unit tests for sort algorithms(non-GUI; written using **mocha/chai**) run command:
 ```
 npm test
 ```
-Note: I assume you running these commands from xxx/lab2 directory.\
+Note: I assume you running these commands from xxx/lab2 directory.
+
 You can check this app via link: https://i1red.github.io/
 
 ### lab3: parallel merge sort
