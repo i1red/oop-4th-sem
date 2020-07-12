@@ -1,3 +1,6 @@
+export const VISUALIZABLE_SORT_ALGORITHM_DELAY = 1000;
+
+
 export enum StyleClass {
     Power = 'pow',
     Array = 'array',

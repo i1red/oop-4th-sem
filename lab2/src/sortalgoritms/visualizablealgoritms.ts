@@ -1,9 +1,9 @@
 import { StylableNumberArray } from '../numberarray/numberarray';
-import { StyleClass } from '../settings';
+import { StyleClass, VISUALIZABLE_SORT_ALGORITHM_DELAY } from '../settings';
 import { sleep } from '../utils';
 
 
-export interface VisualizibleSortAlgorithm {
+export interface VisualizableSortAlgorithm {
     (array: StylableNumberArray, delay?: number): Promise<void>;
 }
 
@@ -22,7 +22,7 @@ function removeStyleClassFromArrayRange(array: StylableNumberArray, start: numbe
 }
 
 
-async function swap(array: StylableNumberArray, i: number, j: number, delay: number = 1000): Promise<void> {
+async function visualizableSwap(array: StylableNumberArray, i: number, j: number, delay: number = VISUALIZABLE_SORT_ALGORITHM_DELAY): Promise<void> {
     if (i !== j) {
         array.addStyleClassToItem(i, StyleClass.SwappedItem);
         array.addStyleClassToItem(j, StyleClass.SwappedItem);
@@ -38,7 +38,7 @@ async function swap(array: StylableNumberArray, i: number, j: number, delay: num
 }
 
 
-async function partition(array: StylableNumberArray, start: number, end: number, delay: number): Promise<number> {
+async function visualizablePartition(array: StylableNumberArray, start: number, end: number, delay: number): Promise<number> {
     addStyleClassToArrayRange(array, start, end + 1, StyleClass.PartitionCurrentItem);
     await sleep(delay);
 
@@ -53,13 +53,13 @@ async function partition(array: StylableNumberArray, start: number, end: number,
         await sleep(delay);
         if (array.get(j) <= pivot) {
             ++i;
-            swap(array, i, j);
+            visualizableSwap(array, i, j);
         }
         array.removeStyleClassFromItem(j, StyleClass.TmpItem);
         await sleep(delay);
     }
 
-    swap(array, i + 1, end);
+    visualizableSwap(array, i + 1, end);
 
     array.removeStyleClassFromItem(end, StyleClass.PivotItem);
     removeStyleClassFromArrayRange(array, start, end + 1, StyleClass.PartitionCurrentItem);
@@ -69,27 +69,27 @@ async function partition(array: StylableNumberArray, start: number, end: number,
 }
 
 
-async function quicksortImpl(array: StylableNumberArray, start: number, end: number, delay: number): Promise<void> {
+async function visualizableQuicksortImpl(array: StylableNumberArray, start: number, end: number, delay: number): Promise<void> {
     if (start < end) {
-        let index: number = await partition(array, start, end, delay);
+        let index: number = await visualizablePartition(array, start, end, delay);
 
         array.addStyleClassToItem(index, StyleClass.PartitionResultItem);
         await sleep(delay);
 
-        await quicksortImpl(array, start, index - 1, delay);
-        await quicksortImpl(array, index + 1, end, delay);
+        await visualizableQuicksortImpl(array, start, index - 1, delay);
+        await visualizableQuicksortImpl(array, index + 1, end, delay);
 
         array.removeStyleClassFromItem(index, StyleClass.PartitionResultItem);
     }
 }
 
 
-export async function quicksort(array: StylableNumberArray, delay: number = 1000): Promise<void> {
-    await quicksortImpl(array, 0, array.length - 1, delay);
+export async function visualizableQuicksort(array: StylableNumberArray, delay: number = VISUALIZABLE_SORT_ALGORITHM_DELAY): Promise<void> {
+    await visualizableQuicksortImpl(array, 0, array.length - 1, delay);
 }
 
 
-export async function selectionSort(array: StylableNumberArray, delay: number = 1000): Promise<void> {
+export async function visualizableSelectionSort(array: StylableNumberArray, delay: number = VISUALIZABLE_SORT_ALGORITHM_DELAY): Promise<void> {
     for (let i: number = 0; i < array.length - 1; ++i) {
         array.addStyleClassToItem(i, StyleClass.CurrentItem);
         await sleep(delay);
@@ -113,7 +113,7 @@ export async function selectionSort(array: StylableNumberArray, delay: number = 
             await sleep(delay);
         }
 
-        await swap(array, minIndex, i, delay);
+        await visualizableSwap(array, minIndex, i, delay);
 
         array.removeStyleClassFromItem(minIndex, StyleClass.MinItem);
         array.removeStyleClassFromItem(i, StyleClass.CurrentItem);

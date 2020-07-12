@@ -6,7 +6,7 @@ function randomInteger(min: number = 0, max: number = Number.MAX_SAFE_INTEGER): 
 }
 
 
-export function randomNumberArray(arraySize: number, minValue: number = 0, maxValue: number = 100): Array<number> {
+export function randomNumberArray(arraySize: number, minValue: number = 0, maxValue: number = 100): number[] {
     let result = Array<number>(arraySize);
     for (let i: number = 0; i < result.length; ++i) {
         result[i] = randomInteger(minValue, maxValue);
@@ -27,5 +27,17 @@ export namespace HTMLFormat {
 
     export function power(power: number): string {
         return `<span class="${StyleClass.Power}">${power}</span>`
+    }
+}
+
+
+export interface HTMLDisableableElement extends HTMLElement {
+    disabled: boolean;
+}
+
+
+export function setDisabledStatus(elements: HTMLDisableableElement[], status: boolean): void {
+    for (let element of elements) {
+        element.disabled = status;
     }
 }

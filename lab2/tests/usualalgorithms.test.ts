@@ -14,12 +14,12 @@ describe('Test sort algorithms', () => {
 
     for (let testSetup of testSetups) {
         it(testSetup.description, () => {
-            let initArray: Array<number> = randomNumberArray(arraySize, -arraySize, arraySize);
+            let initArray: number[] = randomNumberArray(arraySize, -arraySize, arraySize);
 
             let actualArray = new BuiltInNumberArray(initArray);
             testSetup.algorithm(actualArray);
 
-            let expectedArray: Array<number> = initArray.sort((a: number, b: number) => a - b);
+            let expectedArray: number[] = initArray.sort((a: number, b: number) => a - b);
 
             for (let i = 0; i < arraySize; ++i) {
                 expect(actualArray.get(i)).to.equal(expectedArray[i]);

@@ -23,9 +23,9 @@ export interface StylableNumberArray extends NumberArray, StylableArray, Parente
 
 
 export class BuiltInNumberArray implements NumberArray {
-    private container: Array<number>;
+    private container: number[];
 
-    constructor(initArray: Array<number>) {
+    constructor(initArray: number[]) {
         this.container = Array.from(initArray);
     }
 
@@ -44,11 +44,11 @@ export class BuiltInNumberArray implements NumberArray {
 
 
 export class HTMLNumberArray implements StylableNumberArray {
-    private items: Array<HTMLDivArrayItem>;
+    private items: HTMLDivArrayItem[];
     private itemsParent: HTMLDivElement;
     private parent: HTMLElement = null;
 
-    constructor(initArray: Array<number>, parent: HTMLElement = null) {
+    constructor(initArray: number[], parent: HTMLElement = null) {
         this.itemsParent = document.createElement('div');
         this.itemsParent.classList.add(StyleClass.Array);
         this.items = initArray.map(value => new HTMLDivArrayItem(value, this.itemsParent));
