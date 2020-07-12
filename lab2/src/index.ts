@@ -4,17 +4,16 @@ import { sortAlgorithmsInfo, SortAlgorithmInfo } from './sortalgoritms/algorithm
 import { randomNumberArray, setDisabledStatus, HTMLDisableableElement } from './utils';
 
 
+let sortAlgorithmDescription = <HTMLDivElement>document.getElementById('sortAlgorithmDescription');
+
 const SELECT_SORT_ALGORITHMS: HTMLSelectElement = initSelectSortAlgorithms();
 const BTN_SORT = <HTMLButtonElement>document.getElementById('btnSort');
 const BTN_GEN_RAND_ITEMS = <HTMLButtonElement>document.getElementById('btnGenRandItems');
 const SPIN_ITEMS_NUMBER = <HTMLInputElement>document.getElementById('spinItemsNumber');
 const SORT_ALGORITHM_VISUALIZATION = <HTMLDivElement>document.getElementById('sortAlgorithmVisualization');
 
-
 const NOT_SECURE_ELEMENTS_FOR_SORT_PROCESS: HTMLDisableableElement[] = [SELECT_SORT_ALGORITHMS, BTN_GEN_RAND_ITEMS, BTN_SORT];
 
-
-let sortAlgorithmDescription = <HTMLDivElement>document.getElementById('sortAlgorithmDescription');
 let array: HTMLNumberArray = null;
 
 
@@ -38,7 +37,7 @@ function initSelectSortAlgorithms(): HTMLSelectElement {
     let loadedFirstAlgorithm: boolean = false;
 
     for (let [sortType, info] of Object.entries(sortAlgorithmsInfo)) {
-        if (loadedFirstAlgorithm) {
+        if (!loadedFirstAlgorithm) {
             loadSortAlgorithm(sortType);
             loadedFirstAlgorithm = true;
         }
